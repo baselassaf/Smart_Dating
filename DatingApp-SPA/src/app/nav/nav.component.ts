@@ -21,4 +21,15 @@ export class NavComponent implements OnInit {
       console.log('Faild to login');
     });
   }
+
+  loggedIn() {
+   const token = localStorage.getItem('token');
+  //  check if token have value return t or f
+   return !!token;
+  }
+
+  logout() {
+    localStorage.removeItem('token');
+    console.log('logged out');
+  }
 }
