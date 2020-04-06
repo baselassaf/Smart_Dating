@@ -17,7 +17,7 @@ values: any;
   }
 
   registerToggle() {
-    this.registerMode = !this.registerMode;
+    this.registerMode = true;
   }
 
   getValues() {
@@ -26,5 +26,9 @@ values: any;
     }, error => {
       console.log(error);
     });
+    }
+
+    calcelRegisterMode(registerMode: boolean) {
+      this.registerMode = registerMode;
     }
 }
