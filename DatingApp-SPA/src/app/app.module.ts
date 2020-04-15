@@ -3,10 +3,9 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms' ;
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
-import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { Router, RouterModule } from '@angular/router';
 import { JwtModule } from '@auth0/angular-jwt';
-
+import { NgxGalleryModule } from '@kolkov/ngx-gallery';
 
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -29,6 +28,8 @@ export function tokenGetter() {
    return localStorage.getItem('token');
 }
 
+
+
 @NgModule({
    declarations: [
       AppComponent,
@@ -49,6 +50,7 @@ export function tokenGetter() {
       TabsModule.forRoot(),
       BrowserAnimationsModule,
       RouterModule.forRoot(appRoute),
+      NgxGalleryModule,
       JwtModule.forRoot({
          config: {
             tokenGetter: tokenGetter,
