@@ -117,5 +117,7 @@ namespace DatingApp.API.Controllers
 
                 return BadRequest("Could not set photo to main");
         }
+
+        
     }
 }
