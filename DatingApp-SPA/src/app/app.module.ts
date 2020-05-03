@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms' ;
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { Router, RouterModule } from '@angular/router';
 import { JwtModule } from '@auth0/angular-jwt';
@@ -50,7 +51,7 @@ export function tokenGetter() {
       MemberDetailComponent,
       MemberEditComponent,
       PhotoEditorComponent,
-      TimeAgoPipe
+      // TimeAgoPipe
    ],
    imports: [
       FileUploadModule,
@@ -60,11 +61,12 @@ export function tokenGetter() {
       FormsModule,
       ReactiveFormsModule,
       BsDropdownModule.forRoot(),
+      PaginationModule.forRoot(),
       TabsModule.forRoot(),
       BrowserAnimationsModule,
       RouterModule.forRoot(appRoute),
       NgxGalleryModule,
-      BsDatepickerModule.forRoot(),
+      // BsDatepickerModule.forRoot(),
       JwtModule.forRoot({
          config: {
             tokenGetter: tokenGetter,
