@@ -11,7 +11,7 @@ import { Router, RouterModule } from '@angular/router';
 import { JwtModule } from '@auth0/angular-jwt';
 import { NgxGalleryModule } from '@kolkov/ngx-gallery';
 import { FileUploader, FileUploadModule } from 'ng2-file-upload';
-import {TimeAgoPipe} from 'time-ago-pipe';
+// import {TimeAgoPipe} from 'time-ago-pipe';
 
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -32,6 +32,7 @@ import { MemberEditComponent } from './members/member-edit/member-edit.component
 import { MemberEditResolver } from './_resolvers/member-edit.resolver';
 import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes-guard';
 import { PhotoEditorComponent } from './members/photo-editor/photo-editor.component';
+import { ListstResolver } from './_resolvers/lists.resolver';
 
 export function tokenGetter() {
    return localStorage.getItem('token');
@@ -83,7 +84,8 @@ export function tokenGetter() {
       MemberDetailResolver,
       MemberlistResolver,
       MemberEditResolver,
-      PreventUnsavedChanges
+      PreventUnsavedChanges,
+      ListstResolver
    ],
    bootstrap: [
       AppComponent
