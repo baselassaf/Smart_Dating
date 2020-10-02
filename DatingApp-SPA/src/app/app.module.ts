@@ -10,6 +10,7 @@ import { Router, RouterModule } from '@angular/router';
 import { JwtModule } from '@auth0/angular-jwt';
 import { NgxGalleryModule } from '@kolkov/ngx-gallery';
 import { FileUploader, FileUploadModule } from 'ng2-file-upload';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -33,6 +34,12 @@ import { PhotoEditorComponent } from './members/photo-editor/photo-editor.compon
 import { ListstResolver } from './_resolvers/lists.resolver';
 import { MessagesResolver } from './_resolvers/messages-resolver';
 import { MemberMessagesComponent } from './members/member-messages/member-messages.component';
+import { AdminPanelComponent } from './admin/admin-panel/admin-panel.component';
+import { HasRoleDirective } from './_directives/hasRole.directive';
+import { UserManagementComponent } from './admin/user-management/user-management.component';
+import { PhotoManagementComponent } from './admin/photo-management/photo-management.component';
+import { AdminService } from './_services/admin.service';
+import { RolesModalComponent } from './admin/roles-modal/roles-modal.component';
 
 export function tokenGetter() {
    return localStorage.getItem('token');
@@ -53,8 +60,12 @@ export function tokenGetter() {
       MemberDetailComponent,
       MemberEditComponent,
       PhotoEditorComponent,
-      MemberMessagesComponent
-      // TimeAgoPipe
+      MemberMessagesComponent,
+      AdminPanelComponent,
+      HasRoleDirective,
+      UserManagementComponent,
+      PhotoManagementComponent,
+      RolesModalComponent
    ],
    imports: [
       FileUploadModule,
@@ -70,6 +81,7 @@ export function tokenGetter() {
       BrowserAnimationsModule,
       RouterModule.forRoot(appRoute),
       NgxGalleryModule,
+      ModalModule.forRoot(),
       JwtModule.forRoot({
          config: {
             tokenGetter,
@@ -86,7 +98,11 @@ export function tokenGetter() {
       MemberEditResolver,
       PreventUnsavedChanges,
       ListstResolver,
-      MessagesResolver
+      MessagesResolver,
+      AdminService
+   ],
+   entryComponents: [
+      RolesModalComponent
    ],
    bootstrap: [
       AppComponent
